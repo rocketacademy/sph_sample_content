@@ -1,7 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import BoilerPlate from "./Components/BoilerPlate";
+import Counter from "./Components/Counter";
+import Clock from "./Components/Clock";
+import { useState } from "react";
 
 function App() {
+  const [showClock, setShowClock] = useState(false);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +23,13 @@ function App() {
         >
           Learn React
         </a>
+
+        <BoilerPlate />
+
+        <Counter name="Sam" />
+
+        <button onClick={() => setShowClock(!showClock)}>Toggle Clock</button>
+        {showClock ? <Clock /> : null}
       </header>
     </div>
   );
