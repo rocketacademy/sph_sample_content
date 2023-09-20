@@ -1,26 +1,37 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ShoppingForm from "./ShoppingForm";
 import ShoppingDisplay from "./ShoppingDisplay";
+import { ShoppingListContext } from "../Provider/ShoppingListProvider";
 
 const ShoppingPage = (props) => {
+  const { shopingListsDispatch: dispatch, shoppingLists: shoppingListContext } =
+    useContext(ShoppingListContext);
+
   const [lists, setLists] = useState({
-    sampleList: [{ item: "test 1", itemAmount: 5, itemPrice: 5 }],
+    [shoppingListContext.selectedList]:
+      shoppingListContext.lists[shoppingListContext.selectedList],
   });
-  const [listSelected, setListSelected] = useState(lists.sampleList);
-  const [currentListName, setCurrentListName] = useState("sampleList");
   const [showNewListForm, setShowNewListForm] = useState(false);
   const [newListForm, setNewListForm] = useState("");
 
   const selectList = (list) => {
-    setListSelected(lists[list]);
-    setCurrentListName(`${list}`);
+    dispatch({
+      type: "SELECT",
+      payload: {
+        selectedList: list,
+      },
+    });
   };
 
   const newList = () => {
-    setLists((prevState) => {
-      return { ...prevState, [newListForm]: [] };
+    dispatch({
+      type: "NEW",
+      payload: {
+        name: newListForm,
+      },
     });
     setShowNewListForm(!showNewListForm);
+    setNewListForm("");
   };
 
   const addItem = (item) => {
@@ -28,40 +39,46 @@ const ShoppingPage = (props) => {
       item: item.item,
       itemAmount: item.itemAmount,
       itemPrice: item.itemPrice,
+      markAsBought: false,
     };
-    setListSelected((prevState) => {
-      return [itemToAdd, ...prevState];
+
+    dispatch({
+      type: "ADD",
+      payload: {
+        selectedList: shoppingListContext.selectedList,
+        item: itemToAdd,
+      },
     });
   };
 
   useEffect(() => {
-    setLists((prevState) => {
-      return { ...prevState, [currentListName]: listSelected };
-    });
-  }, [listSelected]);
+    setLists(shoppingListContext.lists);
+  }, [shoppingListContext.lists]);
 
   const deleteItem = (index) => {
-    const alteredArray = [...listSelected];
-    alteredArray.splice(index, 1);
-    setListSelected(alteredArray);
+    dispatch({
+      type: "DELETE",
+      payload: {
+        selectedList: shoppingListContext.selectedList,
+        index: index,
+      },
+    });
   };
 
   const markAsBought = (index) => {
-    const alteredArray = [...listSelected];
-    alteredArray[index] = {
-      ...alteredArray[index],
-      markAsBought: !alteredArray[index].markAsBought,
-    };
-    setListSelected(alteredArray);
+    dispatch({
+      type: "MARK",
+      payload: {
+        selectedList: shoppingListContext.selectedList,
+        index: index,
+      },
+    });
   };
-
-  console.log(Object.entries(lists));
-
   const displayLists = () => {
     let display = [];
     for (const [key, value] of Object.entries(lists)) {
       display.push(
-        <div onClick={() => selectList(key)} className="item">
+        <div onClick={() => selectList(key)}>
           <h3>{key}</h3>
           <p>Number of Items: {value.length}</p>
         </div>
@@ -92,10 +109,10 @@ const ShoppingPage = (props) => {
           </button>
           <div className="flexCenter">{displayLists()}</div>
           <ShoppingForm addItem={addItem} />
-          <h2>{currentListName}</h2>
+          <h2>{shoppingListContext.selectedList}</h2>
 
           <ShoppingDisplay
-            list={listSelected}
+            list={shoppingListContext.lists[shoppingListContext.selectedList]}
             deleteItem={deleteItem}
             markAsBought={markAsBought}
           />
