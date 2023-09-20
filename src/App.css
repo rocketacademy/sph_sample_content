@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,55 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.delete {
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.todoItem {
+  cursor: pointer;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container {
+  height: 30vh;
+}
+
+.icon {
+  height: 1.5em;
+}
+
+.item {
+  margin: 10px;
+  padding: 10px;
+  border: 6px double #fff;
+  border-radius: 15px;
+}
+
+.form {
+  height: 10vh;
+  width: 25vw;
+}
+
+.formButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bought {
+  background-color: #1c9c13;
+  text-decoration: line-through;
+}
+
+.notBought {
+  background-color: #ff0000;
 }
