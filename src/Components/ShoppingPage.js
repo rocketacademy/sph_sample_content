@@ -39,7 +39,7 @@ const ShoppingPage = (props) => {
     setLists((prevState) => {
       return { ...prevState, [currentListName]: listSelected };
     });
-  }, [listSelected]);
+  }, [listSelected, currentListName]);
 
   const deleteItem = (index) => {
     const alteredArray = [...listSelected];
