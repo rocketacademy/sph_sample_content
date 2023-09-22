@@ -21,6 +21,7 @@ const ShoppingPage = (props) => {
       return { ...prevState, [newListForm]: [] };
     });
     setShowNewListForm(!showNewListForm);
+    setNewListForm("");
   };
 
   const addItem = (item) => {
@@ -74,11 +75,9 @@ const ShoppingPage = (props) => {
     <>
       {showNewListForm ? (
         <div className="form">
-          <label>Item</label>
-          <br />
           <input
             type="text"
-            name="item"
+            name="newListForm"
             value={newListForm}
             placeholder="New List"
             onChange={(e) => setNewListForm(e.target.value)}
