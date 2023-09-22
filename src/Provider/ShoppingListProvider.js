@@ -1,9 +1,7 @@
 import React, { useReducer } from "react";
-
 import { shoppingListReducer, initialState } from "../Reducer/ShoppingLists";
 
 export const ShoppingListContext = React.createContext();
-
 const ShoppingListProvider = ({ children }) => {
   const [shoppingLists, shopingListsDispatch] = useReducer(
     shoppingListReducer,

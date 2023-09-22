@@ -68,13 +68,3 @@ export function shoppingListReducer(state, action) {
       return state;
   }
 }
-
-//     dispatch({
-//   type: "ADD",
-//   payload:{
-//     task:{
-//       name: task,
-//       done: false
-//     }
-//   }
-// })

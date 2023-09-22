@@ -7,10 +7,6 @@ const ShoppingPage = (props) => {
   const { shopingListsDispatch: dispatch, shoppingLists: shoppingListContext } =
     useContext(ShoppingListContext);
 
-  const [lists, setLists] = useState({
-    [shoppingListContext.selectedList]:
-      shoppingListContext.lists[shoppingListContext.selectedList],
-  });
   const [showNewListForm, setShowNewListForm] = useState(false);
   const [newListForm, setNewListForm] = useState("");
 
@@ -34,49 +30,9 @@ const ShoppingPage = (props) => {
     setNewListForm("");
   };
 
-  const addItem = (item) => {
-    let itemToAdd = {
-      item: item.item,
-      itemAmount: item.itemAmount,
-      itemPrice: item.itemPrice,
-      markAsBought: false,
-    };
-
-    dispatch({
-      type: "ADD",
-      payload: {
-        selectedList: shoppingListContext.selectedList,
-        item: itemToAdd,
-      },
-    });
-  };
-
-  useEffect(() => {
-    setLists(shoppingListContext.lists);
-  }, [shoppingListContext.lists]);
-
-  const deleteItem = (index) => {
-    dispatch({
-      type: "DELETE",
-      payload: {
-        selectedList: shoppingListContext.selectedList,
-        index: index,
-      },
-    });
-  };
-
-  const markAsBought = (index) => {
-    dispatch({
-      type: "MARK",
-      payload: {
-        selectedList: shoppingListContext.selectedList,
-        index: index,
-      },
-    });
-  };
   const displayLists = () => {
     let display = [];
-    for (const [key, value] of Object.entries(lists)) {
+    for (const [key, value] of Object.entries(shoppingListContext.lists)) {
       display.push(
         <div onClick={() => selectList(key)}>
           <h3>{key}</h3>
@@ -108,14 +64,10 @@ const ShoppingPage = (props) => {
             New List
           </button>
           <div className="flexCenter">{displayLists()}</div>
-          <ShoppingForm addItem={addItem} />
+          <ShoppingForm />
           <h2>{shoppingListContext.selectedList}</h2>
 
-          <ShoppingDisplay
-            list={shoppingListContext.lists[shoppingListContext.selectedList]}
-            deleteItem={deleteItem}
-            markAsBought={markAsBought}
-          />
+          <ShoppingDisplay />
         </div>
       )}
     </>

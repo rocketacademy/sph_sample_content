@@ -1,7 +1,28 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import cart from "../Images/cart.webp";
+import { ShoppingListContext } from "../Provider/ShoppingListProvider";
 
 const ShoppingForm = (props) => {
+  const { shopingListsDispatch: dispatch, shoppingLists: shoppingListContext } =
+    useContext(ShoppingListContext);
+
+  const addItem = (item) => {
+    let itemToAdd = {
+      item: item.item,
+      itemAmount: item.itemAmount,
+      itemPrice: item.itemPrice,
+      markAsBought: false,
+    };
+
+    dispatch({
+      type: "ADD",
+      payload: {
+        selectedList: shoppingListContext.selectedList,
+        item: itemToAdd,
+      },
+    });
+  };
+
   const [formInformation, setFormInformation] = useState({
     item: "",
     itemAmount: 0,
@@ -22,7 +43,7 @@ const ShoppingForm = (props) => {
       ...formInformation,
       bought: false,
     };
-    props.addItem(itemToAdd);
+    addItem(itemToAdd);
 
     setFormInformation({ item: "", itemAmount: 0, itemPrice: 0 });
   };
