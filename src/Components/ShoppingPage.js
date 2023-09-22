@@ -1,6 +1,7 @@
-import { useEffect, useState, useContext } from "react";
 import ShoppingForm from "./ShoppingForm";
 import ShoppingDisplay from "./ShoppingDisplay";
+
+import { useState, useContext } from "react";
 import { ShoppingListContext } from "../Provider/ShoppingListProvider";
 
 const ShoppingPage = (props) => {
@@ -34,7 +35,7 @@ const ShoppingPage = (props) => {
     let display = [];
     for (const [key, value] of Object.entries(shoppingListContext.lists)) {
       display.push(
-        <div onClick={() => selectList(key)}>
+        <div onClick={() => selectList(key)} className="item">
           <h3>{key}</h3>
           <p>Number of Items: {value.length}</p>
         </div>
@@ -47,8 +48,6 @@ const ShoppingPage = (props) => {
     <>
       {showNewListForm ? (
         <div className="form">
-          <label>Item</label>
-          <br />
           <input
             type="text"
             name="item"
