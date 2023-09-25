@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Rocket Academy React Basic Components Boilerplate Code
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Here is the ReactJs Basic Component Boilerplate code for the Rocket Academy code.
+In this repository we will explore a couple of React concepts:
 
-## Available Scripts
+## React Props
+
+The term "props" stands for "properties" and is used for passing data from one component to another. As opposed to state in React, props are read-only. So, the data coming from a parent component can't be changed by the child component.
+
+## React State
+
+The state in React is an instance of React Component Class that can be defined as an object of a set of observable properties that control the behavior of the component. In other words, the State of a component is an object that holds some information that may change over the lifetime of the component. In our workshop we will explore the useState hook to implement state into our functional components.
+
+## React Hooks
+
+Hooks are functions that let you “hook into” React state and lifecycle features from function components.
+
+## React useState Hook
+
+The useState hook is used to manage state in a functional component. It provides a simple way to update state and trigger re-renders when the state changes. The performance implications of useState are generally minimal, as React is optimized to handle updates to state efficiently.
+
+## React useEffect Hook
+
+useEffect(callback, dependencies) is the hook that manages the side-effects in functional components. callback argument is a function where to put the side-effect logic. dependencies is a list of dependencies of your side-effect: being props or state values.
+
+### Using the repository
+
+To use this project properly you will need to install the required packages run the React Application, follow the instructions below:
+
+### `npm i`
+
+This command downloads a package and all of its dependencies, in this instance it reads the package.json to install the relevent modules to run the React Application.
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
+The page will reload when you make changes.
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This command takes the ES6/7 syntax that ReactJs utilizes and compiles it down into ES5 readible script for our browser to display to us.
