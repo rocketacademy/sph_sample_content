@@ -1,7 +1,6 @@
 # Rocket Academy React Shopping List Boilerplate Code
 
-Here is the Shopping List Boilerplate code for the Rocket Academy codealong
-In this repository we will explore a couple of React concepts:
+Here is the Shopping List Boilerplate code for the Rocket Academy codealong In this repository we will explore a couple of React concepts:
 
 ## React Props
 
@@ -19,7 +18,11 @@ Hooks are functions that let you “hook into” React state and lifecycle featu
 
 The useState hook is used to manage state in a functional component. It provides a simple way to update state and trigger re-renders when the state changes. The performance implications of useState are generally minimal, as React is optimized to handle updates to state efficiently.
 
-### Using the repository
+## React useEffect Hook
+
+useEffect(callback, dependencies) is the hook that manages the side-effects in functional components. callback argument is a function where to put the side-effect logic. dependencies is a list of dependencies of your side-effect: being props or state values.
+
+## Using the repository
 
 To use this project properly you will need to install the required packages run the React Application, follow the instructions below:
 
@@ -31,15 +34,12 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in the development mode. Open http://localhost:3000 to view it in your browser.
 
-The page will reload when you make changes.
-You may also see any lint errors in the console.
+The page will reload when you make changes. You may also see any lint errors in the console.
 
 This command takes the ES6/7 syntax that ReactJs utilizes and compiles it down into ES5 readible script for our browser to display to us.
 
 ### Alterting the code
 
-There are four components that are within the Components folder, we suggest you follow the code along or instructions within to create a website similar to this deployed version:
-https://650d4d3fda78162069326a4e--sph-shopping-list.netlify.app/
+There are four components that are within the Components folder, we suggest you follow the code along or instructions within to create a website similar to this deployed version: https://650d4d3fda78162069326a4e--sph-shopping-list.netlify.app/
