@@ -27,6 +27,7 @@ function App() {
         <BoilerPlate />
 
         <Counter name="Sam" />
+        <Counter name="Bill" count={3} />
 
         <button onClick={() => setShowClock(!showClock)}>Toggle Clock</button>
         {showClock ? <Clock /> : null}
