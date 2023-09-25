@@ -21,7 +21,7 @@ const ShoppingListProvider = ({ children }) => {
 
   return (
     <ShoppingListContext.Provider
-      value={{ shoppingListsDispatch, shoppingLists }}
+    // Finish setting up the provider
     >
       {children}
     </ShoppingListContext.Provider>

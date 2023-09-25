@@ -23,95 +23,17 @@ const ShoppingForm = (props) => {
    * Capture the items name, the amount of items to buy and the price of each item
    */
 
-  const {
-    shoppingListsDispatch: dispatch,
-    shoppingLists: shoppingListContext,
-  } = useContext(ShoppingListContext);
+  // Grab the shoppingLists and shoppingListsDisptach from the context provider
 
-  const addItem = (item) => {
-    let itemToAdd = {
-      item: item.item,
-      itemAmount: item.itemAmount,
-      itemPrice: item.itemPrice,
-      markAsBought: false,
-    };
+  // Define states here
 
-    dispatch({
-      type: "ADD",
-      payload: {
-        selectedList: shoppingListContext.selectedList,
-        item: itemToAdd,
-      },
-    });
-  };
+  // Define state update hanlder function (s) here
 
-  const [formInformation, setFormInformation] = useState({
-    item: "",
-    itemAmount: 0,
-    itemPrice: 0,
-  });
+  // Define a setListItem method that will pass the information to an addItem method and reset the state of the form
 
-  const handleUpdate = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setFormInformation((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  // Define the addItem method that dispatches the ADD method to the reducer along with required information
 
-  const setListItem = () => {
-    let itemToAdd = {
-      ...formInformation,
-      bought: false,
-    };
-    addItem(itemToAdd);
-
-    setFormInformation({ item: "", itemAmount: 0, itemPrice: 0 });
-  };
-
-  return (
-    <>
-      <div className="flexCenter item">
-        <div className="form">
-          <label>Item</label>
-          <br />
-          <input
-            type="text"
-            name="item"
-            value={formInformation.item}
-            placeholder="Item to Add"
-            onChange={handleUpdate}
-          />
-        </div>
-        <div className="form">
-          <label>Amount</label>
-          <br />
-          <input
-            type="number"
-            name="itemAmount"
-            value={formInformation.itemAmount}
-            onChange={handleUpdate}
-          />
-        </div>
-        <div className="form">
-          <label>Price</label>
-          <br />
-          <input
-            type="number"
-            name="itemPrice"
-            value={formInformation.itemPrice}
-            onChange={handleUpdate}
-          />
-        </div>
-        <div className="form formButton">
-          <button onClick={setListItem}>
-            <img className="icon" src={cart} alt="Add Item" />
-          </button>
-        </div>
-      </div>
-    </>
-  );
+  return <>{/* Place rendered JSX / Components here */}</>;
 };
 
 export default ShoppingForm;
