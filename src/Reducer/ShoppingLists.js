@@ -1,4 +1,4 @@
-import { GET, ADD, MARK, DELETE, NEW, SELECT } from "./ShoppingItemActionTypes";
+import { ADD, MARK, DELETE, NEW, SELECT } from "./ShoppingItemActionTypes";
 
 export const initialState = {
   lists: {
@@ -22,8 +22,6 @@ export function shoppingListReducer(state, action) {
         ...state,
         lists: { ...state.lists, [action.payload.name]: [] },
       };
-    case GET:
-      return state;
     case ADD:
       return {
         ...state,
