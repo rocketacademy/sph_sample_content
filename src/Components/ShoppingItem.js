@@ -5,8 +5,26 @@ import { useContext } from "react";
 import { ShoppingListContext } from "../Provider/ShoppingListProvider";
 
 const ShoppingItem = (props) => {
-  const { shopingListsDispatch: dispatch, shoppingLists: shoppingListContext } =
-    useContext(ShoppingListContext);
+  /**
+   * Component usecase
+   * To showcase the individual ShoppingItem to the users
+   *
+   * Suggeted Contexts Retrieved
+   * shoppingLists
+   * shoppingsListDispatch
+   *
+   * Suggested Component States
+   * N/A
+   *
+   * Suggested Functionalities
+   * To display if the item is brought or not, do this through CSS properties
+   * To use the markAsBought method to alter the state of the current item and the currently selected lists context (use index) by calling the dispatch and 'MARK' method, passing in the index and selected list
+   * To use the deleteItem methods to remove the current item from the currently selected lists context (use index) by calling the dispatch and 'DELETE' method, passing in the index and selected list
+   */
+  const {
+    shoppingListsDispatch: dispatch,
+    shoppingLists: shoppingListContext,
+  } = useContext(ShoppingListContext);
 
   const deleteItem = (index) => {
     dispatch({
