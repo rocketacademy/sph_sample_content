@@ -15,41 +15,12 @@ export default function Clock() {
    * Create a tick function that will run every second
    * The tick function should update the time state to the correct updated value
    */
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
 
-  useEffect(() => {
-    console.log("I run once when mounting");
-  }, []);
+  // Define your state here
 
-  useEffect(() => {
-    console.log("I run when the component is updated.");
-  });
+  // Define your useEffect functions here
 
-  const tick = () => {
-    setTime(new Date().toLocaleTimeString());
-  };
+  // Define the tick method here
 
-  useEffect(() => {
-    console.log("I run when the component is mounted");
-
-    const clock = setInterval(() => {
-      tick();
-    }, 1000);
-
-    return () => {
-      console.log("I run when the component is unmounted");
-      clearInterval(clock);
-    };
-  }, []);
-
-  useEffect(() => {
-    console.log(time);
-    console.log("I run when the time state is updated.");
-  }, [time]);
-
-  return (
-    <>
-      <h1>The time is: {time}</h1>
-    </>
-  );
+  return <>{/* Place rendered JSX / Components here */}</>;
 }

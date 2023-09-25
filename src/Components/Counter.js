@@ -19,20 +19,9 @@ const Counter = (props) => {
    * Create an '-' button that decrements the count state when clicked
    *
    */
-  const [count, setCount] = useState(props.count || 0);
 
-  return (
-    <>
-      <h1>{props.name ? props.name : "Stranger"}'s Counter</h1>
-      <h2>{count}</h2>
-      <button onClick={() => setCount(count + 1)}>+</button>
-      <button onClick={() => setCount(count - 1)}>-</button>
-      {/**
-       * Alternate ways to alter the count state on click
-       *  <button onClick={() => setCount((prevState) => prevState + 1)}>+</button>
-       *  <button onClick={() => setCount((prevState) => prevState - 1)}>-</button>
-       */}
-    </>
-  );
+  // Define your state here
+
+  return <>{/* Place rendered JSX / Components here */}</>;
 };
 export default Counter;
