@@ -18,6 +18,10 @@ Hooks are functions that let you “hook into” React state and lifecycle featu
 
 The useState hook is used to manage state in a functional component. It provides a simple way to update state and trigger re-renders when the state changes. The performance implications of useState are generally minimal, as React is optimized to handle updates to state efficiently.
 
+## React useEffect Hook
+
+useEffect(callback, dependencies) is the hook that manages the side-effects in functional components. callback argument is a function where to put the side-effect logic. dependencies is a list of dependencies of your side-effect: being props or state values.
+
 ## Using the repository
 
 To use this project properly you will need to install the required packages run the React Application, follow the instructions below:

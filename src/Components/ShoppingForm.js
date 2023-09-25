@@ -21,73 +21,13 @@ const ShoppingForm = (props) => {
    * Capture the items name, the amount of items to buy and the price of each item
    */
 
-  const [formInformation, setFormInformation] = useState({
-    item: "",
-    itemAmount: 0,
-    itemPrice: 0,
-  });
+  // Define state here
 
-  const handleUpdate = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setFormInformation((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  // Define state update handler function (s)
 
-  const setListItem = () => {
-    let itemToAdd = {
-      ...formInformation,
-      bought: false,
-    };
-    props.addItem(itemToAdd);
+  // Define a method that will use the addItem prop to add a new item to the currentlySelected list.
 
-    setFormInformation({ item: "", itemAmount: 0, itemPrice: 0 });
-  };
-
-  return (
-    <>
-      <div className="flexCenter item">
-        <div className="form">
-          <label>Item</label>
-          <br />
-          <input
-            type="text"
-            name="item"
-            value={formInformation.item}
-            placeholder="Item to Add"
-            onChange={handleUpdate}
-          />
-        </div>
-        <div className="form">
-          <label>Amount</label>
-          <br />
-          <input
-            type="number"
-            name="itemAmount"
-            value={formInformation.itemAmount}
-            onChange={handleUpdate}
-          />
-        </div>
-        <div className="form">
-          <label>Price</label>
-          <br />
-          <input
-            type="number"
-            name="itemPrice"
-            value={formInformation.itemPrice}
-            onChange={handleUpdate}
-          />
-        </div>
-        <div className="form formButton">
-          <button onClick={setListItem}>
-            <img className="icon" src={cart} alt="Add Item" />
-          </button>
-        </div>
-      </div>
-    </>
-  );
+  return <>{/* Place rendered JSX / Components here */}</>;
 };
 
 export default ShoppingForm;
