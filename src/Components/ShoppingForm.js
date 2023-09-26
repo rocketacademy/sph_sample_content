@@ -6,23 +6,6 @@ const ShoppingForm = (props) => {
   const { shopingListsDispatch: dispatch, shoppingLists: shoppingListContext } =
     useContext(ShoppingListContext);
 
-  const addItem = (item) => {
-    let itemToAdd = {
-      item: item.item,
-      itemAmount: item.itemAmount,
-      itemPrice: item.itemPrice,
-      markAsBought: false,
-    };
-
-    dispatch({
-      type: "ADD",
-      payload: {
-        selectedList: shoppingListContext.selectedList,
-        item: itemToAdd,
-      },
-    });
-  };
-
   const [formInformation, setFormInformation] = useState({
     item: "",
     itemAmount: 0,
@@ -40,10 +23,16 @@ const ShoppingForm = (props) => {
 
   const setListItem = () => {
     let itemToAdd = {
+      markAsBought: false,
       ...formInformation,
-      bought: false,
     };
-    addItem(itemToAdd);
+    dispatch({
+      type: "ADD",
+      payload: {
+        selectedList: shoppingListContext.selectedList,
+        item: itemToAdd,
+      },
+    });
 
     setFormInformation({ item: "", itemAmount: 0, itemPrice: 0 });
   };
