@@ -29,9 +29,7 @@ const ShoppingForm = (props) => {
 
   // Define state update hanlder function (s) here
 
-  // Define a setListItem method that will pass the information to an addItem method and reset the state of the form
-
-  // Define the addItem method that dispatches the ADD method to the reducer along with required information
+  // Define a setListItem method that dispatches the ADD method to the reducer along with required informationmethod and resets the state of the form
 
   return <>{/* Place rendered JSX / Components here */}</>;
 };
