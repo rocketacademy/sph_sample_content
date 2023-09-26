@@ -25,13 +25,8 @@ const ShoppingPage = (props) => {
   };
 
   const addItem = (item) => {
-    let itemToAdd = {
-      item: item.item,
-      itemAmount: item.itemAmount,
-      itemPrice: item.itemPrice,
-    };
     setListSelected((prevState) => {
-      return [itemToAdd, ...prevState];
+      return [item, ...prevState];
     });
   };
 

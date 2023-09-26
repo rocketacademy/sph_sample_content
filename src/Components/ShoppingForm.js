@@ -20,10 +20,9 @@ const ShoppingForm = (props) => {
   const setListItem = () => {
     let itemToAdd = {
       ...formInformation,
-      bought: false,
+      markAsBought: false,
     };
     props.addItem(itemToAdd);
-
     setFormInformation({ item: "", itemAmount: 0, itemPrice: 0 });
   };
 
