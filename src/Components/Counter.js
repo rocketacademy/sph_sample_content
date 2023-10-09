@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Counter = (props) => {
   const [count, setCount] = useState(props.count || 0);
+
+  // useEffect slide
+  // useEffect(() => {
+  //   console.log("hello");
+  //   setCount(1);
+  // }, []);
 
   return (
     <>
