@@ -1,6 +1,6 @@
 # Rocket Academy React Basic Components Boilerplate Code
 
-Here is the ReactJs Basic Component Boilerplate code for the Rocket Academy code.
+Here is the ReactJs Basic Component Boilerplate code for the Rocket Academy codealong.
 In this repository we will explore a couple of React concepts:
 
 ## React Props
